@@ -1,0 +1,31 @@
+name: Research proposal
+description: Propose an experiment or architecture change
+title: "[Research]: "
+labels: [research]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Research question
+      description: State one falsifiable question.
+    validations:
+      required: true
+  - type: textarea
+    id: baseline
+    attributes:
+      label: Baseline and method
+      description: Define inputs, baseline, metric, hardware, and repeatability plan.
+    validations:
+      required: true
+  - type: textarea
+    id: success
+    attributes:
+      label: Decision criterion
+      description: What result supports, rejects, or redirects the proposal?
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks, licenses, and costs
+      description: Include model/data licensing, compute, privacy, safety, and scope risks.
