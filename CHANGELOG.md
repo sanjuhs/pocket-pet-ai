@@ -10,6 +10,10 @@ Notable changes are documented here. The project follows [Keep a Changelog](http
 - Shared governance for Codex, Claude, Hermes, and human contributors.
 - Architecture, roadmap, contribution, security, and claim-labeling guidance.
 - GitHub CI, issue templates, and pull request template.
+- Public Next.js landing page with purpose-built product imagery and social preview.
+- Embedded 15-page technical whitepaper with a deterministic PDF generator.
+- Executable ternary transformer, protected outlier path, compressed latent KV cache, and notebook.
+- Public GitHub repository and Vercel production deployment.
 
 ## [0.1.0] - 2026-07-11
 

@@ -2,6 +2,8 @@
 
 Pocket Pet AI is an open research project exploring a private, local-first personal AI companion built around a frozen, low-bit model. The long-term concept combines an ear-worn interface, a pocket compute device, and permissioned phone and desktop companions. This repository starts with a software reference implementation and an evidence-driven path toward FPGA feasibility—not a claim that the custom hardware already exists.
 
+**Live site:** [pocket-pet-ai.vercel.app](https://pocket-pet-ai.vercel.app) · **Whitepaper:** [read online](https://pocket-pet-ai.vercel.app/research)
+
 ## What Is Here
 
 - A public landing page explaining the product and research thesis.
@@ -64,7 +66,7 @@ Shared instructions are in [`AGENTS.md`](AGENTS.md), with focused notes for [`CO
 
 ## Deploying
 
-The application can be connected to a GitHub repository and deployed through Vercel or another compatible host. A successful local or CI build does not prove a deployment succeeded. Configure deployment in the host dashboard, keep credentials out of Git, and verify the production URL after each release.
+The public repository is connected to Vercel for production deployment. A successful local or CI build does not prove a deployment succeeded: keep credentials out of Git and verify the production URL after each release.
 
 ## Contributing and License
 
