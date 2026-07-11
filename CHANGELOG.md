@@ -14,6 +14,9 @@ Notable changes are documented here. The project follows [Keep a Changelog](http
 - Embedded 15-page technical whitepaper with a deterministic PDF generator.
 - Executable ternary transformer, protected outlier path, compressed latent KV cache, and notebook.
 - Public GitHub repository and Vercel production deployment.
+- Reproducible ML ablations with machine-readable results and 12 invariant tests.
+- Bit-accurate ternary FPGA golden model, two-bit packing contract, synthesizable reference MVU, and analytical lane sweep.
+- Curated 16-paper primary-source library with verified hashes, page counts, citations, implications, and caveats.
 
 ## [0.1.0] - 2026-07-11
 

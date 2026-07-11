@@ -47,9 +47,12 @@ class QuantizedLatentCache:
 
     def fp16_full_kv_bytes(self, config: object) -> int:
         """Equivalent standard FP16 K+V cache size for the current sequence."""
+        values = self._values[0]
+        batch_size = 0 if values is None else values.shape[0]
         return (
             2
             * config.num_layers
+            * batch_size
             * self.sequence_length()
             * config.hidden_size
             * torch.tensor([], dtype=torch.float16).element_size()

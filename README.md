@@ -9,6 +9,8 @@ Pocket Pet AI is an open research project exploring a private, local-first perso
 - A public landing page explaining the product and research thesis.
 - A downloadable technical white paper.
 - A Python/`uv` research workspace for model and memory experiments.
+- Reproducible ML ablations and a bit-accurate FPGA-oriented golden reference.
+- A curated, verified library of primary research papers grouped by engineering decision.
 - A staged architecture for local inference, memory, speech, and deterministic action authorization.
 - CI and contribution rules for reproducible claims.
 
@@ -47,6 +49,21 @@ uv run pytest
 ```
 
 See [`agent.tech.md`](agent.tech.md) for the complete command contract.
+
+## Evidence and learning guides
+
+- [`docs/ml-validation-guide.md`](docs/ml-validation-guide.md) explains the measured ternary, outlier, latent-cache, and causal-inference experiments.
+- [`docs/fpga-guide.md`](docs/fpga-guide.md) defines the two-bit packing contract, golden-vector simulation, synthesizable MVU kernel, limitations, and board gates.
+- [`docs/research-guide.md`](docs/research-guide.md) turns 16 primary sources into concrete architecture decisions and caveats.
+- [`research/papers/README.md`](research/papers/README.md) indexes the local paper library and its integrity manifest. Those PDFs retain their original licenses and are not relicensed under this repository's MIT license.
+
+Run the complete bounded evidence suite:
+
+```bash
+uv run python scripts/run_ml_experiments.py
+uv run python scripts/run_fpga_simulation.py
+uv run pytest
+```
 
 ## Research Stages
 

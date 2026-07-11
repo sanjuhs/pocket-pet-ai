@@ -25,3 +25,12 @@ def test_cache_appends_incrementally() -> None:
     cache.append(0, torch.zeros(1, 1, 4))
     assert cache.sequence_length() == 3
     assert cache.get(0).shape == (1, 3, 4)
+
+
+def test_full_kv_baseline_accounts_for_batch_dimension() -> None:
+    config = PocketPetConfig(hidden_size=64, intermediate_size=128, num_layers=2, num_heads=4, latent_size=16)
+    cache = QuantizedLatentCache(config.num_layers)
+    for layer in range(config.num_layers):
+        cache.append(layer, torch.randn(3, 5, config.latent_size))
+
+    assert cache.fp16_full_kv_bytes(config) == 2 * config.num_layers * 3 * 5 * config.hidden_size * 2

@@ -1,0 +1,1041 @@
+{
+  "schema_version": 1,
+  "status": "measured_software_reference",
+  "scope": "Seeded random tensors and a randomly initialized tiny transformer. No pretrained model, language-quality task, FPGA, ASIC, energy meter, or packed ternary kernel was tested.",
+  "method": {
+    "weights": "128x128 FP32 matrices; 256 FP32 input vectors; symmetric per-row ternarization",
+    "outliers": "global top absolute-magnitude weights protected exactly in FP32 compute",
+    "cache": "per-token symmetric int8 latent with one FP16 scale",
+    "timing": "perf_counter_ns wall clock after five warm-up iterations; synchronization after every sample"
+  },
+  "environment": {
+    "timestamp_utc": "2026-07-11T13:52:38.367468+00:00",
+    "command": "uv run python scripts/run_ml_experiments.py --device cpu --timing-samples 30",
+    "python": "3.12.13",
+    "torch": "2.13.0",
+    "numpy": "2.5.1",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "Apple M4 Pro",
+    "physical_memory_bytes": 51539607552,
+    "logical_cpu_count": 14,
+    "device": "cpu",
+    "mps_available": true,
+    "random_seeds": [
+      7,
+      17,
+      29
+    ],
+    "git": {
+      "commit": "792271a719abf2da5a76cfa12cd0ab640fb056d4",
+      "working_tree_dirty": true
+    }
+  },
+  "experiments": {
+    "dense_ternary_ablation": [
+      {
+        "seed": 7,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.0,
+        "outlier_fraction_actual": 0.0,
+        "zero_symbol_fraction": 0.42462158203125,
+        "frozen_export_bits_estimate": 34816,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 15.058823529411764,
+        "weight": {
+          "rmse": 0.04672938957810402,
+          "relative_l2": 0.5261640548706055,
+          "max_abs": 0.2591119706630707,
+          "cosine_similarity": 0.9001034498214722
+        },
+        "output": {
+          "rmse": 0.5292226672172546,
+          "relative_l2": 0.5264160633087158,
+          "max_abs": 2.225203037261963,
+          "cosine_similarity": 0.9012688398361206
+        }
+      },
+      {
+        "seed": 7,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.005,
+        "outlier_fraction_actual": 0.0050048828125,
+        "zero_symbol_fraction": 0.4239501953125,
+        "frozen_export_bits_estimate": 38752,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 13.529314616019818,
+        "weight": {
+          "rmse": 0.04470816254615784,
+          "relative_l2": 0.5034056901931763,
+          "max_abs": 0.1877402663230896,
+          "cosine_similarity": 0.9048708081245422
+        },
+        "output": {
+          "rmse": 0.5057922005653381,
+          "relative_l2": 0.5031095743179321,
+          "max_abs": 2.225203037261963,
+          "cosine_similarity": 0.9057173728942871
+        }
+      },
+      {
+        "seed": 7,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.01,
+        "outlier_fraction_actual": 0.010009765625,
+        "zero_symbol_fraction": 0.4244384765625,
+        "frozen_export_bits_estimate": 42688,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 12.281859070464767,
+        "weight": {
+          "rmse": 0.043355491012334824,
+          "relative_l2": 0.4881748855113983,
+          "max_abs": 0.16742952167987823,
+          "cosine_similarity": 0.9080797433853149
+        },
+        "output": {
+          "rmse": 0.49121057987213135,
+          "relative_l2": 0.48860523104667664,
+          "max_abs": 2.0628652572631836,
+          "cosine_similarity": 0.9085263609886169
+        }
+      },
+      {
+        "seed": 7,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.02,
+        "outlier_fraction_actual": 0.02001953125,
+        "zero_symbol_fraction": 0.42645263671875,
+        "frozen_export_bits_estimate": 50560,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 10.369620253164557,
+        "weight": {
+          "rmse": 0.0412144809961319,
+          "relative_l2": 0.4640675187110901,
+          "max_abs": 0.145341157913208,
+          "cosine_similarity": 0.9136502742767334
+        },
+        "output": {
+          "rmse": 0.46616697311401367,
+          "relative_l2": 0.4636942148208618,
+          "max_abs": 2.096728563308716,
+          "cosine_similarity": 0.9139135479927063
+        }
+      },
+      {
+        "seed": 7,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.05,
+        "outlier_fraction_actual": 0.050048828125,
+        "zero_symbol_fraction": 0.43499755859375,
+        "frozen_export_bits_estimate": 74176,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 7.068162208800691,
+        "weight": {
+          "rmse": 0.03660719096660614,
+          "relative_l2": 0.41219010949134827,
+          "max_abs": 0.11594265699386597,
+          "cosine_similarity": 0.9272110462188721
+        },
+        "output": {
+          "rmse": 0.4119168817996979,
+          "relative_l2": 0.40973228216171265,
+          "max_abs": 1.922237515449524,
+          "cosine_similarity": 0.9280872344970703
+        }
+      },
+      {
+        "seed": 7,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.0,
+        "outlier_fraction_actual": 0.0,
+        "zero_symbol_fraction": 0.5135498046875,
+        "frozen_export_bits_estimate": 34816,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 15.058823529411764,
+        "weight": {
+          "rmse": 0.20106573402881622,
+          "relative_l2": 0.8978263139724731,
+          "max_abs": 2.5395331382751465,
+          "cosine_similarity": 0.49177223443984985
+        },
+        "output": {
+          "rmse": 2.2798209190368652,
+          "relative_l2": 0.8974729180335999,
+          "max_abs": 16.164804458618164,
+          "cosine_similarity": 0.49350446462631226
+        }
+      },
+      {
+        "seed": 7,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.005,
+        "outlier_fraction_actual": 0.0050048828125,
+        "zero_symbol_fraction": 0.466552734375,
+        "frozen_export_bits_estimate": 38752,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 13.529314616019818,
+        "weight": {
+          "rmse": 0.1353185474872589,
+          "relative_l2": 0.6042429208755493,
+          "max_abs": 1.914159893989563,
+          "cosine_similarity": 0.798568844795227
+        },
+        "output": {
+          "rmse": 1.5199226140975952,
+          "relative_l2": 0.5983322858810425,
+          "max_abs": 13.334001541137695,
+          "cosine_similarity": 0.8031032085418701
+        }
+      },
+      {
+        "seed": 7,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.01,
+        "outlier_fraction_actual": 0.010009765625,
+        "zero_symbol_fraction": 0.4244384765625,
+        "frozen_export_bits_estimate": 42688,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 12.281859070464767,
+        "weight": {
+          "rmse": 0.043355491012334824,
+          "relative_l2": 0.19359703361988068,
+          "max_abs": 0.16742952167987823,
+          "cosine_similarity": 0.9814571142196655
+        },
+        "output": {
+          "rmse": 0.49121057987213135,
+          "relative_l2": 0.1933698058128357,
+          "max_abs": 2.0628652572631836,
+          "cosine_similarity": 0.9815087914466858
+        }
+      },
+      {
+        "seed": 7,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.02,
+        "outlier_fraction_actual": 0.02001953125,
+        "zero_symbol_fraction": 0.42645263671875,
+        "frozen_export_bits_estimate": 50560,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 10.369620253164557,
+        "weight": {
+          "rmse": 0.0412144809961319,
+          "relative_l2": 0.18403670191764832,
+          "max_abs": 0.145341157913208,
+          "cosine_similarity": 0.9832488894462585
+        },
+        "output": {
+          "rmse": 0.46616697311401367,
+          "relative_l2": 0.18351104855537415,
+          "max_abs": 2.096728563308716,
+          "cosine_similarity": 0.9833418726921082
+        }
+      },
+      {
+        "seed": 7,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.05,
+        "outlier_fraction_actual": 0.050048828125,
+        "zero_symbol_fraction": 0.43499755859375,
+        "frozen_export_bits_estimate": 74176,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 7.068162208800691,
+        "weight": {
+          "rmse": 0.03660719096660614,
+          "relative_l2": 0.1634635031223297,
+          "max_abs": 0.11594265699386597,
+          "cosine_similarity": 0.9867763519287109
+        },
+        "output": {
+          "rmse": 0.4119168817996979,
+          "relative_l2": 0.1621551364660263,
+          "max_abs": 1.9222373962402344,
+          "cosine_similarity": 0.9869930744171143
+        }
+      },
+      {
+        "seed": 17,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.0,
+        "outlier_fraction_actual": 0.0,
+        "zero_symbol_fraction": 0.423828125,
+        "frozen_export_bits_estimate": 34816,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 15.058823529411764,
+        "weight": {
+          "rmse": 0.04648776724934578,
+          "relative_l2": 0.5233230590820312,
+          "max_abs": 0.2500757575035095,
+          "cosine_similarity": 0.9011828899383545
+        },
+        "output": {
+          "rmse": 0.5236687660217285,
+          "relative_l2": 0.5231466293334961,
+          "max_abs": 2.143923759460449,
+          "cosine_similarity": 0.9019031524658203
+        }
+      },
+      {
+        "seed": 17,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.005,
+        "outlier_fraction_actual": 0.0050048828125,
+        "zero_symbol_fraction": 0.4237060546875,
+        "frozen_export_bits_estimate": 38752,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 13.529314616019818,
+        "weight": {
+          "rmse": 0.0445806123316288,
+          "relative_l2": 0.5018538236618042,
+          "max_abs": 0.18659308552742004,
+          "cosine_similarity": 0.9055874347686768
+        },
+        "output": {
+          "rmse": 0.5018553733825684,
+          "relative_l2": 0.5013551115989685,
+          "max_abs": 2.1391029357910156,
+          "cosine_similarity": 0.9064470529556274
+        }
+      },
+      {
+        "seed": 17,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.01,
+        "outlier_fraction_actual": 0.010009765625,
+        "zero_symbol_fraction": 0.4234619140625,
+        "frozen_export_bits_estimate": 42688,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 12.281859070464767,
+        "weight": {
+          "rmse": 0.04323607310652733,
+          "relative_l2": 0.48671823740005493,
+          "max_abs": 0.16486959159374237,
+          "cosine_similarity": 0.9087029695510864
+        },
+        "output": {
+          "rmse": 0.48637402057647705,
+          "relative_l2": 0.4858892261981964,
+          "max_abs": 1.8490545749664307,
+          "cosine_similarity": 0.9093397855758667
+        }
+      },
+      {
+        "seed": 17,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.02,
+        "outlier_fraction_actual": 0.02001953125,
+        "zero_symbol_fraction": 0.426025390625,
+        "frozen_export_bits_estimate": 50560,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 10.369620253164557,
+        "weight": {
+          "rmse": 0.04117454215884209,
+          "relative_l2": 0.46351101994514465,
+          "max_abs": 0.13969877362251282,
+          "cosine_similarity": 0.9140333533287048
+        },
+        "output": {
+          "rmse": 0.46307021379470825,
+          "relative_l2": 0.46260884404182434,
+          "max_abs": 1.863715648651123,
+          "cosine_similarity": 0.9144648313522339
+        }
+      },
+      {
+        "seed": 17,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.05,
+        "outlier_fraction_actual": 0.050048828125,
+        "zero_symbol_fraction": 0.43609619140625,
+        "frozen_export_bits_estimate": 74176,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 7.068162208800691,
+        "weight": {
+          "rmse": 0.03677875176072121,
+          "relative_l2": 0.41402667760849,
+          "max_abs": 0.11309058219194412,
+          "cosine_similarity": 0.9267048835754395
+        },
+        "output": {
+          "rmse": 0.4143839478492737,
+          "relative_l2": 0.4139711260795593,
+          "max_abs": 1.739916205406189,
+          "cosine_similarity": 0.9271813631057739
+        }
+      },
+      {
+        "seed": 17,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.0,
+        "outlier_fraction_actual": 0.0,
+        "zero_symbol_fraction": 0.51220703125,
+        "frozen_export_bits_estimate": 34816,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 15.058823529411764,
+        "weight": {
+          "rmse": 0.19838887453079224,
+          "relative_l2": 0.8961652517318726,
+          "max_abs": 2.5027055740356445,
+          "cosine_similarity": 0.49376362562179565
+        },
+        "output": {
+          "rmse": 2.242788791656494,
+          "relative_l2": 0.8956267237663269,
+          "max_abs": 13.221268653869629,
+          "cosine_similarity": 0.4958357810974121
+        }
+      },
+      {
+        "seed": 17,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.005,
+        "outlier_fraction_actual": 0.0050048828125,
+        "zero_symbol_fraction": 0.46502685546875,
+        "frozen_export_bits_estimate": 38752,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 13.529314616019818,
+        "weight": {
+          "rmse": 0.13447967171669006,
+          "relative_l2": 0.6074734926223755,
+          "max_abs": 1.9176522493362427,
+          "cosine_similarity": 0.796161413192749
+        },
+        "output": {
+          "rmse": 1.5208321809768677,
+          "relative_l2": 0.6073235273361206,
+          "max_abs": 10.202523231506348,
+          "cosine_similarity": 0.7966294288635254
+        }
+      },
+      {
+        "seed": 17,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.01,
+        "outlier_fraction_actual": 0.010009765625,
+        "zero_symbol_fraction": 0.4234619140625,
+        "frozen_export_bits_estimate": 42688,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 12.281859070464767,
+        "weight": {
+          "rmse": 0.04323607310652733,
+          "relative_l2": 0.19530664384365082,
+          "max_abs": 0.16486959159374237,
+          "cosine_similarity": 0.9811378717422485
+        },
+        "output": {
+          "rmse": 0.48637399077415466,
+          "relative_l2": 0.19422678649425507,
+          "max_abs": 1.8490545749664307,
+          "cosine_similarity": 0.9813440442085266
+        }
+      },
+      {
+        "seed": 17,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.02,
+        "outlier_fraction_actual": 0.02001953125,
+        "zero_symbol_fraction": 0.426025390625,
+        "frozen_export_bits_estimate": 50560,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 10.369620253164557,
+        "weight": {
+          "rmse": 0.04117454215884209,
+          "relative_l2": 0.1859942376613617,
+          "max_abs": 0.13969877362251282,
+          "cosine_similarity": 0.9828954339027405
+        },
+        "output": {
+          "rmse": 0.46307024359703064,
+          "relative_l2": 0.1849207878112793,
+          "max_abs": 1.863715648651123,
+          "cosine_similarity": 0.9830904006958008
+        }
+      },
+      {
+        "seed": 17,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.05,
+        "outlier_fraction_actual": 0.050048828125,
+        "zero_symbol_fraction": 0.43609619140625,
+        "frozen_export_bits_estimate": 74176,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 7.068162208800691,
+        "weight": {
+          "rmse": 0.03677875176072121,
+          "relative_l2": 0.16613751649856567,
+          "max_abs": 0.11309058219194412,
+          "cosine_similarity": 0.9863454699516296
+        },
+        "output": {
+          "rmse": 0.4143839478492737,
+          "relative_l2": 0.1654786318540573,
+          "max_abs": 1.739916205406189,
+          "cosine_similarity": 0.986455500125885
+        }
+      },
+      {
+        "seed": 29,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.0,
+        "outlier_fraction_actual": 0.0,
+        "zero_symbol_fraction": 0.41851806640625,
+        "frozen_export_bits_estimate": 34816,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 15.058823529411764,
+        "weight": {
+          "rmse": 0.046096138656139374,
+          "relative_l2": 0.5210199356079102,
+          "max_abs": 0.2887882590293884,
+          "cosine_similarity": 0.9010401368141174
+        },
+        "output": {
+          "rmse": 0.5228824615478516,
+          "relative_l2": 0.5224997401237488,
+          "max_abs": 2.6943936347961426,
+          "cosine_similarity": 0.899585485458374
+        }
+      },
+      {
+        "seed": 29,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.005,
+        "outlier_fraction_actual": 0.0050048828125,
+        "zero_symbol_fraction": 0.41796875,
+        "frozen_export_bits_estimate": 38752,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 13.529314616019818,
+        "weight": {
+          "rmse": 0.04415598511695862,
+          "relative_l2": 0.49909067153930664,
+          "max_abs": 0.18438620865345,
+          "cosine_similarity": 0.9058377742767334
+        },
+        "output": {
+          "rmse": 0.4994683265686035,
+          "relative_l2": 0.4991024136543274,
+          "max_abs": 2.2227022647857666,
+          "cosine_similarity": 0.9054067134857178
+        }
+      },
+      {
+        "seed": 29,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.01,
+        "outlier_fraction_actual": 0.010009765625,
+        "zero_symbol_fraction": 0.41839599609375,
+        "frozen_export_bits_estimate": 42688,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 12.281859070464767,
+        "weight": {
+          "rmse": 0.04286068677902222,
+          "relative_l2": 0.4844500720500946,
+          "max_abs": 0.15916824340820312,
+          "cosine_similarity": 0.9089961647987366
+        },
+        "output": {
+          "rmse": 0.4852113127708435,
+          "relative_l2": 0.48485592007637024,
+          "max_abs": 2.025872230529785,
+          "cosine_similarity": 0.9085344672203064
+        }
+      },
+      {
+        "seed": 29,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.02,
+        "outlier_fraction_actual": 0.02001953125,
+        "zero_symbol_fraction": 0.4207763671875,
+        "frozen_export_bits_estimate": 50560,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 10.369620253164557,
+        "weight": {
+          "rmse": 0.04079815745353699,
+          "relative_l2": 0.4611375331878662,
+          "max_abs": 0.14522461593151093,
+          "cosine_similarity": 0.9144997596740723
+        },
+        "output": {
+          "rmse": 0.4624486267566681,
+          "relative_l2": 0.4621102213859558,
+          "max_abs": 2.025872230529785,
+          "cosine_similarity": 0.9137601256370544
+        }
+      },
+      {
+        "seed": 29,
+        "distribution": "gaussian",
+        "outlier_fraction_requested": 0.05,
+        "outlier_fraction_actual": 0.050048828125,
+        "zero_symbol_fraction": 0.430908203125,
+        "frozen_export_bits_estimate": 74176,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 7.068162208800691,
+        "weight": {
+          "rmse": 0.036294788122177124,
+          "relative_l2": 0.4102361798286438,
+          "max_abs": 0.11547315120697021,
+          "cosine_similarity": 0.9278689622879028
+        },
+        "output": {
+          "rmse": 0.41122421622276306,
+          "relative_l2": 0.41092315316200256,
+          "max_abs": 1.787906527519226,
+          "cosine_similarity": 0.9273852705955505
+        }
+      },
+      {
+        "seed": 29,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.0,
+        "outlier_fraction_actual": 0.0,
+        "zero_symbol_fraction": 0.50823974609375,
+        "frozen_export_bits_estimate": 34816,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 15.058823529411764,
+        "weight": {
+          "rmse": 0.19717124104499817,
+          "relative_l2": 0.896014928817749,
+          "max_abs": 2.7726290225982666,
+          "cosine_similarity": 0.49280279874801636
+        },
+        "output": {
+          "rmse": 2.2515673637390137,
+          "relative_l2": 0.8975005149841309,
+          "max_abs": 13.772894859313965,
+          "cosine_similarity": 0.48919764161109924
+        }
+      },
+      {
+        "seed": 29,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.005,
+        "outlier_fraction_actual": 0.0050048828125,
+        "zero_symbol_fraction": 0.459716796875,
+        "frozen_export_bits_estimate": 38752,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 13.529314616019818,
+        "weight": {
+          "rmse": 0.13265885412693024,
+          "relative_l2": 0.6028480529785156,
+          "max_abs": 1.883467435836792,
+          "cosine_similarity": 0.7996516227722168
+        },
+        "output": {
+          "rmse": 1.4985127449035645,
+          "relative_l2": 0.5973246097564697,
+          "max_abs": 9.09168529510498,
+          "cosine_similarity": 0.8038859963417053
+        }
+      },
+      {
+        "seed": 29,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.01,
+        "outlier_fraction_actual": 0.010009765625,
+        "zero_symbol_fraction": 0.41839599609375,
+        "frozen_export_bits_estimate": 42688,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 12.281859070464767,
+        "weight": {
+          "rmse": 0.04286068677902222,
+          "relative_l2": 0.19477394223213196,
+          "max_abs": 0.15916824340820312,
+          "cosine_similarity": 0.9812391996383667
+        },
+        "output": {
+          "rmse": 0.4852113127708435,
+          "relative_l2": 0.19341087341308594,
+          "max_abs": 2.0258734226226807,
+          "cosine_similarity": 0.9814938902854919
+        }
+      },
+      {
+        "seed": 29,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.02,
+        "outlier_fraction_actual": 0.02001953125,
+        "zero_symbol_fraction": 0.4207763671875,
+        "frozen_export_bits_estimate": 50560,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 10.369620253164557,
+        "weight": {
+          "rmse": 0.04079815745353699,
+          "relative_l2": 0.1854010969400406,
+          "max_abs": 0.14522461593151093,
+          "cosine_similarity": 0.9830049872398376
+        },
+        "output": {
+          "rmse": 0.4624486267566681,
+          "relative_l2": 0.18433751165866852,
+          "max_abs": 2.0258734226226807,
+          "cosine_similarity": 0.9831949472427368
+        }
+      },
+      {
+        "seed": 29,
+        "distribution": "injected_outliers",
+        "outlier_fraction_requested": 0.05,
+        "outlier_fraction_actual": 0.050048828125,
+        "zero_symbol_fraction": 0.430908203125,
+        "frozen_export_bits_estimate": 74176,
+        "fp32_weight_bits": 524288,
+        "weight_storage_compression_estimate": 7.068162208800691,
+        "weight": {
+          "rmse": 0.036294788122177124,
+          "relative_l2": 0.1649361252784729,
+          "max_abs": 0.11547315120697021,
+          "cosine_similarity": 0.9865410327911377
+        },
+        "output": {
+          "rmse": 0.41122421622276306,
+          "relative_l2": 0.16391880810260773,
+          "max_abs": 1.7879090309143066,
+          "cosine_similarity": 0.9866938591003418
+        }
+      }
+    ],
+    "ternary_integer_identity": [
+      {
+        "seed": 7,
+        "activation_shape": [
+          32,
+          128
+        ],
+        "weight_shape": [
+          64,
+          128
+        ],
+        "mismatched_outputs": 0,
+        "max_abs_difference": 0,
+        "observed_max_abs_accumulator": 2457,
+        "observed_signed_accumulator_bits": 13,
+        "worst_case_bound": 16256,
+        "worst_case_signed_accumulator_bits": 15
+      },
+      {
+        "seed": 17,
+        "activation_shape": [
+          32,
+          128
+        ],
+        "weight_shape": [
+          64,
+          128
+        ],
+        "mismatched_outputs": 0,
+        "max_abs_difference": 0,
+        "observed_max_abs_accumulator": 2402,
+        "observed_signed_accumulator_bits": 13,
+        "worst_case_bound": 16256,
+        "worst_case_signed_accumulator_bits": 15
+      },
+      {
+        "seed": 29,
+        "activation_shape": [
+          32,
+          128
+        ],
+        "weight_shape": [
+          64,
+          128
+        ],
+        "mismatched_outputs": 0,
+        "max_abs_difference": 0,
+        "observed_max_abs_accumulator": 2264,
+        "observed_signed_accumulator_bits": 13,
+        "worst_case_bound": 16256,
+        "worst_case_signed_accumulator_bits": 15
+      }
+    ],
+    "latent_cache": [
+      {
+        "seed": 7,
+        "tokens": 128,
+        "hidden_size": 128,
+        "latent_size": 8,
+        "actual_bytes": 1280,
+        "expected_bytes": 1280,
+        "fp16_full_kv_bytes": 65536,
+        "compression_ratio": 51.2,
+        "reconstruction": {
+          "rmse": 0.003929726779460907,
+          "relative_l2": 0.003983856178820133,
+          "max_abs": 0.013090729713439941,
+          "cosine_similarity": 0.9999921321868896
+        }
+      },
+      {
+        "seed": 7,
+        "tokens": 128,
+        "hidden_size": 128,
+        "latent_size": 16,
+        "actual_bytes": 2304,
+        "expected_bytes": 2304,
+        "fp16_full_kv_bytes": 65536,
+        "compression_ratio": 28.444444444444443,
+        "reconstruction": {
+          "rmse": 0.004802591633051634,
+          "relative_l2": 0.004726551938802004,
+          "max_abs": 0.015276670455932617,
+          "cosine_similarity": 0.999988853931427
+        }
+      },
+      {
+        "seed": 7,
+        "tokens": 128,
+        "hidden_size": 128,
+        "latent_size": 32,
+        "actual_bytes": 4352,
+        "expected_bytes": 4352,
+        "fp16_full_kv_bytes": 65536,
+        "compression_ratio": 15.058823529411764,
+        "reconstruction": {
+          "rmse": 0.005311125889420509,
+          "relative_l2": 0.005337435752153397,
+          "max_abs": 0.015068113803863525,
+          "cosine_similarity": 0.9999856352806091
+        }
+      },
+      {
+        "seed": 7,
+        "tokens": 128,
+        "hidden_size": 128,
+        "latent_size": 64,
+        "actual_bytes": 8448,
+        "expected_bytes": 8448,
+        "fp16_full_kv_bytes": 65536,
+        "compression_ratio": 7.757575757575758,
+        "reconstruction": {
+          "rmse": 0.005950164515525103,
+          "relative_l2": 0.0059823328629136086,
+          "max_abs": 0.015340447425842285,
+          "cosine_similarity": 0.9999819397926331
+        }
+      },
+      {
+        "seed": 17,
+        "tokens": 128,
+        "hidden_size": 128,
+        "latent_size": 8,
+        "actual_bytes": 1280,
+        "expected_bytes": 1280,
+        "fp16_full_kv_bytes": 65536,
+        "compression_ratio": 51.2,
+        "reconstruction": {
+          "rmse": 0.004069643095135689,
+          "relative_l2": 0.004054557997733355,
+          "max_abs": 0.013349473476409912,
+          "cosine_similarity": 0.999991774559021
+        }
+      },
+      {
+        "seed": 17,
+        "tokens": 128,
+        "hidden_size": 128,
+        "latent_size": 16,
+        "actual_bytes": 2304,
+        "expected_bytes": 2304,
+        "fp16_full_kv_bytes": 65536,
+        "compression_ratio": 28.444444444444443,
+        "reconstruction": {
+          "rmse": 0.004628809634596109,
+          "relative_l2": 0.004708161577582359,
+          "max_abs": 0.013010263442993164,
+          "cosine_similarity": 0.9999887943267822
+        }
+      },
+      {
+        "seed": 17,
+        "tokens": 128,
+        "hidden_size": 128,
+        "latent_size": 32,
+        "actual_bytes": 4352,
+        "expected_bytes": 4352,
+        "fp16_full_kv_bytes": 65536,
+        "compression_ratio": 15.058823529411764,
+        "reconstruction": {
+          "rmse": 0.005174741148948669,
+          "relative_l2": 0.005305934231728315,
+          "max_abs": 0.012629866600036621,
+          "cosine_similarity": 0.9999856352806091
+        }
+      },
+      {
+        "seed": 17,
+        "tokens": 128,
+        "hidden_size": 128,
+        "latent_size": 64,
+        "actual_bytes": 8448,
+        "expected_bytes": 8448,
+        "fp16_full_kv_bytes": 65536,
+        "compression_ratio": 7.757575757575758,
+        "reconstruction": {
+          "rmse": 0.0058109029196202755,
+          "relative_l2": 0.005798880476504564,
+          "max_abs": 0.014677643775939941,
+          "cosine_similarity": 0.9999825358390808
+        }
+      },
+      {
+        "seed": 29,
+        "tokens": 128,
+        "hidden_size": 128,
+        "latent_size": 8,
+        "actual_bytes": 1280,
+        "expected_bytes": 1280,
+        "fp16_full_kv_bytes": 65536,
+        "compression_ratio": 51.2,
+        "reconstruction": {
+          "rmse": 0.003952017519623041,
+          "relative_l2": 0.004043255932629108,
+          "max_abs": 0.015014410018920898,
+          "cosine_similarity": 0.9999918341636658
+        }
+      },
+      {
+        "seed": 29,
+        "tokens": 128,
+        "hidden_size": 128,
+        "latent_size": 16,
+        "actual_bytes": 2304,
+        "expected_bytes": 2304,
+        "fp16_full_kv_bytes": 65536,
+        "compression_ratio": 28.444444444444443,
+        "reconstruction": {
+          "rmse": 0.004745520185679197,
+          "relative_l2": 0.004696558229625225,
+          "max_abs": 0.012944459915161133,
+          "cosine_similarity": 0.9999889731407166
+        }
+      },
+      {
+        "seed": 29,
+        "tokens": 128,
+        "hidden_size": 128,
+        "latent_size": 32,
+        "actual_bytes": 4352,
+        "expected_bytes": 4352,
+        "fp16_full_kv_bytes": 65536,
+        "compression_ratio": 15.058823529411764,
+        "reconstruction": {
+          "rmse": 0.005685016512870789,
+          "relative_l2": 0.0055767265148460865,
+          "max_abs": 0.015844333916902542,
+          "cosine_similarity": 0.9999842643737793
+        }
+      },
+      {
+        "seed": 29,
+        "tokens": 128,
+        "hidden_size": 128,
+        "latent_size": 64,
+        "actual_bytes": 8448,
+        "expected_bytes": 8448,
+        "fp16_full_kv_bytes": 65536,
+        "compression_ratio": 7.757575757575758,
+        "reconstruction": {
+          "rmse": 0.005959423258900642,
+          "relative_l2": 0.00593321118503809,
+          "max_abs": 0.014815151691436768,
+          "cosine_similarity": 0.999982476234436
+        }
+      }
+    ],
+    "causal_equivalence": {
+      "seed": 101,
+      "tokens": 8,
+      "prefix_tokens": 5,
+      "future_independence": {
+        "rmse": 3.845250375889009e-07,
+        "relative_l2": 6.35904697787737e-08,
+        "max_abs": 3.814697265625e-06,
+        "cosine_similarity": 0.9999998807907104
+      },
+      "one_shot_vs_incremental_quantized_cache": {
+        "rmse": 2.733078758865304e-07,
+        "relative_l2": 4.630265948435408e-08,
+        "max_abs": 1.9073486328125e-06,
+        "cosine_similarity": 1.0
+      },
+      "one_shot_cache_bytes": 160,
+      "incremental_cache_bytes": 160
+    },
+    "memory_accounting": [
+      {
+        "tokens": 1,
+        "layers": 3,
+        "hidden_size": 128,
+        "latent_size": 32,
+        "actual_latent_bytes": 102,
+        "formula_latent_bytes": 102,
+        "formula_matches": true,
+        "fp16_full_kv_bytes": 1536,
+        "formula_fp16_full_kv_bytes": 1536,
+        "cache_compression_ratio": 15.058823529411764
+      },
+      {
+        "tokens": 32,
+        "layers": 3,
+        "hidden_size": 128,
+        "latent_size": 32,
+        "actual_latent_bytes": 3264,
+        "formula_latent_bytes": 3264,
+        "formula_matches": true,
+        "fp16_full_kv_bytes": 49152,
+        "formula_fp16_full_kv_bytes": 49152,
+        "cache_compression_ratio": 15.058823529411764
+      },
+      {
+        "tokens": 128,
+        "layers": 3,
+        "hidden_size": 128,
+        "latent_size": 32,
+        "actual_latent_bytes": 13056,
+        "formula_latent_bytes": 13056,
+        "formula_matches": true,
+        "fp16_full_kv_bytes": 196608,
+        "formula_fp16_full_kv_bytes": 196608,
+        "cache_compression_ratio": 15.058823529411764
+      },
+      {
+        "tokens": 512,
+        "layers": 3,
+        "hidden_size": 128,
+        "latent_size": 32,
+        "actual_latent_bytes": 52224,
+        "formula_latent_bytes": 52224,
+        "formula_matches": true,
+        "fp16_full_kv_bytes": 786432,
+        "formula_fp16_full_kv_bytes": 786432,
+        "cache_compression_ratio": 15.058823529411764
+      }
+    ],
+    "timing": [
+      {
+        "operation": "dense_fp32_linear",
+        "shape": "[256,128]x[128,128]",
+        "device": "cpu",
+        "warmup_iterations": 5,
+        "samples": 30,
+        "median_ms": 0.0098955,
+        "p10_ms": 0.009524399999999999,
+        "p90_ms": 0.0100461,
+        "min_ms": 0.008709,
+        "max_ms": 0.011375
+      },
+      {
+        "operation": "dynamic_ternary_emulator",
+        "shape": "[256,128]x[128,128]",
+        "device": "cpu",
+        "warmup_iterations": 5,
+        "samples": 30,
+        "median_ms": 0.123917,
+        "p10_ms": 0.1226167,
+        "p90_ms": 0.15332980000000002,
+        "min_ms": 0.117375,
+        "max_ms": 0.764584
+      }
+    ]
+  },
+  "interpretation_guardrail": "Timing measures the readable PyTorch emulator, which re-ternarizes weights on every call. It is not a projection of packed kernels or FPGA/ASIC performance."
+}
