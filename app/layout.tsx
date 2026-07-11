@@ -18,7 +18,11 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: "Pocket Pet AI — The Living Object", template: "%s · Pocket Pet AI" },
     description: "An open architecture for a private, local personal AI that listens, remembers, and acts under deterministic policy controls.",
     keywords: ["edge AI", "ternary transformer", "wearable AI", "private AI", "FPGA inference", "BitNet"],
-    icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+    icons: {
+      icon: [{ url: "/brand/pocket-pet-mark-64.png", type: "image/png", sizes: "64x64" }],
+      shortcut: "/brand/pocket-pet-mark-64.png",
+      apple: [{ url: "/brand/pocket-pet-mark-256.png", sizes: "256x256", type: "image/png" }],
+    },
     openGraph: { title: "Pocket Pet AI — The Living Object", description: "Private. Stable. Evolving with you.", type: "website", images: [{ url: image, width: 2048, height: 1152, alt: "Pocket Pet AI compute puck and open-ear clip concept family" }] },
     twitter: { card: "summary_large_image", title: "Pocket Pet AI — The Living Object", description: "Private. Stable. Evolving with you.", images: [image] },
   };

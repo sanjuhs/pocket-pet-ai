@@ -59,8 +59,11 @@ export default function Home() {
   return (
     <main className="product-page" id="top">
       <nav className="site-nav product-shell" aria-label="Primary navigation">
+        <Link className="desktop-mark" href="#top" aria-label="Pocket Pet AI home">
+          <Image src="/brand/pocket-pet-mark-256.png" alt="" width={28} height={28} priority />
+        </Link>
         <Link className="mobile-wordmark" href="#top" aria-label="Pocket Pet AI home">
-          <Image src="/favicon.svg" alt="" width={24} height={24} />
+          <Image src="/brand/pocket-pet-mark-256.png" alt="" width={28} height={28} priority />
           <span>Pocket Pet AI</span>
         </Link>
         <div className="site-links">
@@ -272,7 +275,7 @@ export default function Home() {
           <span><b>−1 / 0 / +1</b>ternary symbols · architecture</span>
         </div>
         <div className="product-shell footer-bottom">
-          <div className="wordmark wordmark-light"><Image src="/favicon.svg" alt="" width={20} height={20} /><span>Pocket Pet AI</span></div>
+          <div className="wordmark wordmark-light"><Image src="/brand/pocket-pet-mark-256.png" alt="" width={24} height={24} /><span>Pocket Pet AI</span></div>
           <nav aria-label="Footer navigation"><a href="#hardware">Hardware</a><a href="#evidence">Evidence</a><Link href="/research">Whitepaper</Link><a href="https://github.com/sanjuhs/pocket-pet-ai">GitHub</a></nav>
           <p>MIT licensed · concept stage</p>
         </div>

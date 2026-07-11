@@ -19,6 +19,9 @@
 - Mobile action chapter after readability correction: `design/qa/mobile-acts-v8.png`
 - Mobile architecture: `design/qa/mobile-architecture-v5.png`
 - Mobile footer: `design/qa/mobile-footer-v5.png`
+- Brand mark in desktop navigation: `design/qa/logo-desktop-final.png`
+- Brand lockup on mobile: `design/qa/logo-mobile.png`
+- Monochrome footer lockup: `design/qa/logo-footer.png`
 
 ## Viewports and state
 
@@ -35,6 +38,7 @@
 - **Image quality and asset fidelity:** All visible product and architecture illustrations are raster assets. Product family, microphone macro, exploded puck, light accelerator macro, ternary lattice, latent-memory stack, evidence charts, primary papers, and whitepaper cover are sharp and composed for their consuming slots. No CSS art, placeholder illustration, handcrafted SVG art, or text baked into generated product imagery is used.
 - **Copy and content:** The visible narrative follows Option 3’s “It listens / remembers / acts” progression, then Option 2’s “Ternary weights / Latent memory / Real recall,” “Built to be proven,” and “Open research / Real rigor.” Hardware claims remain explicitly labeled measured, simulated, analytical, target, estimate, or concept.
 - **Icons and interactions:** Iconoir icons use consistent stroke weights. Desktop Research navigation was clicked in the browser and resolved uniquely to `#research`; homepage, research route, GitHub links, whitepaper route, PDF, and evidence links are real targets. Hover and focus styles remain visible.
+- **Brand identity:** The new mark combines the rounded puck enclosure, open-ear loop, lowercase `p`, and cobalt pulse. It remains legible as a compact desktop symbol, pairs with the wordmark on mobile, and converts to a restrained monochrome treatment on the near-black footer.
 - **Accessibility and responsiveness:** Semantic navigation and headings, descriptive image alt text, reduced-motion handling, readable mobile text blocks, contained hero art, practical tap targets, and no horizontal overflow were verified. The mobile product chapters now separate copy from imagery instead of laying low-contrast text over dark hardware.
 
 ## Findings and comparison history
