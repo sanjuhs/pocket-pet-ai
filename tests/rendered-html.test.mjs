@@ -16,7 +16,7 @@ test("ships the complete product narrative without starter markers", async () =>
   assert.match(page, /Ternary weights/);
   assert.match(page, /Built to be proven/);
   assert.match(page, /Open research/);
-  assert.match(page, /The model proposes/);
+  assert.match(page, /deterministic policy gate/);
   assert.match(page, /no custom silicon has been fabricated/i);
   assert.match(layout, /Pocket Pet AI/);
   assert.match(layout, /product-family\.png/);
@@ -35,6 +35,9 @@ test("ships responsive product imagery and the embedded research surface", async
     access(new URL("public/product-v1/story/listens-macro.png", root)),
     access(new URL("public/product-v1/story/exploded-memory.png", root)),
     access(new URL("public/product-v1/story/acts-silicon.png", root)),
+    access(new URL("public/product-v2/story/acts-light.png", root)),
+    access(new URL("public/product-v2/architecture/ternary-lattice.png", root)),
+    access(new URL("public/product-v2/architecture/latent-memory.png", root)),
     access(new URL("public/product-v1/research/evidence.png", root)),
     access(new URL("public/product-v1/whitepaper/cover.png", root)),
   ]);

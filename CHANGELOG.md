@@ -20,6 +20,8 @@ Notable changes are documented here. The project follows [Keep a Changelog](http
 - “The Living Object” product-story redesign with purpose-built product-family, macro, exploded, and silicon concept imagery.
 - Dark technical theatre and research finale covering ternary weights, latent memory, measured evidence, primary papers, and the downloadable whitepaper.
 - Responsive desktop and mobile presentation with an evidence chart generated from checked-in benchmark artifacts.
+- Source-faithful Option 3 composition with compact product chapters and research board, followed by Option 2’s light architecture/proof sequence and horizontal dark research footer.
+- Dedicated light accelerator macro, ternary-lattice illustration, and latent-memory illustration for the final source-matched sections.
 
 ## [0.1.0] - 2026-07-11
 

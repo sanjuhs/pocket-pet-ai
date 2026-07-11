@@ -2,10 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  Brain,
   Cpu,
   Database,
-  Download,
   Github,
   Lock,
   Microphone,
@@ -61,7 +59,7 @@ export default function Home() {
   return (
     <main className="product-page" id="top">
       <nav className="site-nav product-shell" aria-label="Primary navigation">
-        <Link className="wordmark" href="#top" aria-label="Pocket Pet AI home">
+        <Link className="mobile-wordmark" href="#top" aria-label="Pocket Pet AI home">
           <Image src="/favicon.svg" alt="" width={24} height={24} />
           <span>Pocket Pet AI</span>
         </Link>
@@ -69,7 +67,7 @@ export default function Home() {
           <a href="#research">Research</a>
           <a href="#hardware">Hardware</a>
           <a href="https://github.com/sanjuhs/pocket-pet-ai">Open source</a>
-          <a href="#evidence">Evidence</a>
+          <a href="#roadmap">Roadmap</a>
         </div>
         <a className="nav-action" href="https://github.com/sanjuhs/pocket-pet-ai">
           Join the research preview <NavArrowRight width={16} height={16} />
@@ -78,7 +76,6 @@ export default function Home() {
 
       <section className="living-hero product-shell">
         <div className="hero-intro">
-          <p className="quiet-label">Open architecture · concept stage</p>
           <h1>The Living Object.</h1>
           <p className="hero-subtitle">Private. Stable. Evolving with you.</p>
           <p className="hero-summary">
@@ -98,8 +95,8 @@ export default function Home() {
         <div className="hero-proof" aria-label="Product principles">
           <span><b>Runs locally</b>No cloud required</span>
           <span><b>Personal by design</b>Your data stays with you</span>
-          <span><b>Built for one model</b>Hardware shaped around the weights</span>
-          <span><b>Open and verifiable</b>Code, tests, and papers</span>
+          <span><b>Tiny and efficient</b>All-day on small power</span>
+          <span><b>Open and verifiable</b>Docs, code, and models</span>
         </div>
       </section>
 
@@ -109,8 +106,8 @@ export default function Home() {
         </div>
         <div className="story-copy product-shell">
           <h2>It listens.</h2>
-          <p>Low-power acoustic sensing stays ready. The larger model wakes only when context calls for it.</p>
-          <span className="figure-label">Concept visualization · microphone response remains to be measured</span>
+          <p>Three low-power microphones capture the world around you. Open-ear audio keeps you present, not isolated.</p>
+          <span className="figure-label">Figure · concept<br />Microphone response remains to be measured</span>
         </div>
       </section>
 
@@ -120,23 +117,23 @@ export default function Home() {
         </div>
         <div className="story-copy product-shell">
           <h2>It remembers.</h2>
-          <p>A compressed working context and encrypted personal memory build continuity without sending a life to the cloud.</p>
-          <span className="figure-label">Concept visualization · final components and layout may differ</span>
+          <p>A stable memory architecture lets your companion build a lasting model of you—without sending a byte to the cloud.</p>
+          <span className="figure-label">Figure · target<br />Final components and layout may differ</span>
         </div>
       </section>
 
-      <section className="story-panel story-acts">
+      <section className="story-panel story-acts" id="acts">
         <div className="story-visual">
-          <Image src="/product-v1/story/acts-silicon.png" alt="Concept macro rendering of a model-specific accelerator inside the compute puck" fill sizes="100vw" />
+          <Image src="/product-v2/story/acts-light.png" alt="Concept macro rendering of a model-specific accelerator inside the compute puck" fill sizes="100vw" />
         </div>
-        <div className="story-copy product-shell light-copy">
+        <div className="story-copy product-shell">
           <h2>It acts.</h2>
-          <p>The model proposes each action. Deterministic software checks permission, risk, and consent before execution.</p>
-          <span className="figure-label">Concept visualization · no custom silicon has been fabricated</span>
+          <p>On-device reasoning proposes each action in milliseconds. A deterministic policy gate authorizes consequential execution.</p>
+          <span className="figure-label">Figure · concept<br />No custom silicon has been fabricated</span>
         </div>
       </section>
 
-      <section className="principles product-shell">
+      <section className="principles product-shell" id="principles">
         <header className="center-header">
           <h2>Built from first principles.</h2>
           <p>One fixed model. One inspectable system. Every assumption exposed to measurement.</p>
@@ -152,34 +149,62 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="technical-theatre" id="research">
+      <section className="reference-evidence" id="research">
+        <div className="product-shell">
+          <header className="center-header">
+            <h2>Research and evidence.</h2>
+            <p>Transparent methods. Measured results. Open to scrutiny.</p>
+          </header>
+          <div className="reference-evidence-grid">
+            <article>
+              <h3>Model ablations <span>(measured)</span></h3>
+              <p>Outlier protection and latent memory are evaluated on checked-in software references.</p>
+              <div className="evidence-mini evidence-mini-chart"><Image src="/product-v1/research/evidence.png" alt="Measured model-ablation charts" fill sizes="420px" /></div>
+              <small>Figure · measured software reference</small>
+            </article>
+            <article>
+              <h3>FPGA golden-vector pathway <span>(simulated)</span></h3>
+              <p>Bit-accurate validation establishes a deterministic baseline before board measurements.</p>
+              <div className="evidence-mini"><Image src="/product-v1/story/acts-silicon.png" alt="FPGA-oriented accelerator concept rendering" fill sizes="420px" /></div>
+              <small>Figure · simulated, not board data</small>
+            </article>
+            <article className="paper-downloads">
+              <h3>Primary papers &amp; downloads</h3>
+              <p>Read our paper, methods, and the primary sources behind each hypothesis.</p>
+              <a href="/research/pocket-pet-ai-whitepaper.pdf"><OpenBook width={19} height={19} />Pocket Pet AI technical whitepaper <span>PDF · 2.4 MB</span></a>
+              <a href="https://github.com/sanjuhs/pocket-pet-ai/tree/main/research/papers"><OpenBook width={19} height={19} />Ternary-model research library <span>16 primary papers</span></a>
+              <a href="https://github.com/sanjuhs/pocket-pet-ai/tree/main/benchmark-results"><OpenBook width={19} height={19} />Reproducible result artifacts <span>JSON · code · configs</span></a>
+              <a className="download-all" href="https://github.com/sanjuhs/pocket-pet-ai/blob/main/docs/research-guide.md">View all papers and datasets <ArrowUpRight width={15} height={15} /></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="technical-theatre" id="roadmap">
         <div className="product-shell technical-intro">
           <p className="quiet-label quiet-label-blue">The architecture</p>
           <h2>Ternary weights.<br />Latent memory.<br />Real recall.</h2>
           <p>
-            Freeze what should stay stable. Compress what must stay fast. Keep the user’s evolving memory separate, encrypted, and retrievable.
+            We re-imagine the model and memory system together—so your AI can adapt continually without forgetting.
           </p>
         </div>
         <div className="product-shell technical-grid">
           <article>
-            <Cpu width={28} height={28} strokeWidth={1.35} />
-            <span>01 · Frozen compute</span>
-            <h3>Add. Subtract. Skip.</h3>
-            <p>Ordinary ternary weights route activations through three known operations. Protected outliers retain higher precision.</p>
-            <strong>−1&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;+1</strong>
+            <div className="technical-visual"><Image src="/product-v2/architecture/ternary-lattice.png" alt="Ternary-weight lattice visualization" fill sizes="360px" /></div>
+            <h3>Ternary-native compute</h3>
+            <p>Weights in −1, 0, and +1 reduce memory movement while preserving a protected high-precision path for outliers.</p>
+            <strong>−1 / 0 / +1 <small>architecture</small></strong>
           </article>
           <article>
-            <Database width={28} height={28} strokeWidth={1.35} />
-            <span>02 · Latent working memory</span>
-            <h3>More context. Fewer bytes.</h3>
+            <div className="technical-visual"><Image src="/product-v2/architecture/latent-memory.png" alt="Compact latent-memory block visualization" fill sizes="360px" /></div>
+            <h3>Latent working memory</h3>
             <p>The software reference compresses K/V state into an int8 latent plus a per-token FP16 scale.</p>
             <strong>15.06× <small>measured payload ratio</small></strong>
           </article>
           <article>
-            <Brain width={28} height={28} strokeWidth={1.35} />
-            <span>03 · Personal recall</span>
-            <h3>History without surveillance.</h3>
-            <p>Structured memories can be retrieved when relevant without keeping an entire life in the active context window.</p>
+            <div className="technical-visual technical-chart"><Image src="/product-v1/research/evidence.png" alt="Measured software trend lines" fill sizes="360px" /></div>
+            <h3>Continual adaptation</h3>
+            <p>Writable personal memory stays separate from frozen model weights, with retrieval tested independently.</p>
             <strong>Local <small>design requirement</small></strong>
           </article>
         </div>
@@ -191,18 +216,19 @@ export default function Home() {
             <p className="quiet-label">The evidence</p>
             <h2>Built to be proven.</h2>
           </div>
-          <p>
-            This is not a performance theatre. Every public number is tied to code, a run artifact, or an explicit target—and every failed premise is useful evidence.
-          </p>
+          <p>We test the architecture on real software references and bit-accurate simulations before making hardware claims.</p>
         </div>
-        <div className="product-shell evidence-graphic">
-          <Image src="/product-v1/research/evidence.png" alt="Measured software-reference results for outlier protection and latent cache compression" fill loading="eager" sizes="(max-width: 900px) 100vw, 1280px" />
-        </div>
-        <div className="product-shell evidence-ledger">
-          <article><span>Measured · software</span><b>0.897 → 0.193</b><p>Injected-outlier relative-L2 error with 1% FP32 protection.</p></article>
-          <article><span>Measured · software</span><b>15.06×</b><p>Tensor-payload reduction for the default 32-wide latent cache.</p></article>
-          <article><span>Simulated · FPGA reference</span><b>Exact match</b><p>Packed ternary golden vector equals explicit routed add/subtract.</p></article>
-          <article><span>Analytical · not board data</span><b>4.0×</b><p>Packed 2-bit weights versus dense int8 storage for the reference kernel.</p></article>
+        <div className="product-shell evidence-showcase">
+          <article>
+            <div className="showcase-image showcase-chart"><Image src="/product-v1/research/evidence.png" alt="Measured software-reference results" fill sizes="480px" /></div>
+            <h3>Software benchmarks <span>(measured)</span></h3>
+            <p>Outlier protection reduces injected-outlier error from 0.897 to 0.193; the latent cache reaches a 15.06× payload ratio.</p>
+          </article>
+          <article>
+            <div className="showcase-image"><Image src="/product-v1/story/acts-silicon.png" alt="Accelerator concept used beside the simulated FPGA evidence" fill sizes="480px" /></div>
+            <h3>FPGA pathway <span>(simulated)</span></h3>
+            <p>The packed ternary golden vector matches explicit routed add/subtract exactly. This is not board performance.</p>
+          </article>
         </div>
         <div className="product-shell evidence-actions">
           <a className="text-link" href="https://github.com/sanjuhs/pocket-pet-ai/tree/main/benchmark-results">
@@ -214,51 +240,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="open-research-section">
+      <section className="open-research-section" id="open-research">
         <div className="product-shell research-heading">
           <div>
-            <p className="quiet-label">The literature</p>
+            <p className="quiet-label">The research</p>
             <h2>Open research.<br />Real rigor.</h2>
+            <p>Deep dives, datasets, and design notes for researchers and builders.</p>
+            <Link className="text-link" href="/research">Read the whitepaper <ArrowUpRight width={17} height={17} /></Link>
+            <a className="text-link secondary-research-link" href="https://github.com/sanjuhs/pocket-pet-ai/blob/main/docs/research-guide.md">Browse technical docs <ArrowUpRight width={17} height={17} /></a>
           </div>
-          <div>
-            <p>Sixteen primary papers, verified locally and organized around the questions this architecture must answer.</p>
-            <a className="text-link" href="https://github.com/sanjuhs/pocket-pet-ai/blob/main/docs/research-guide.md">
-              Browse the research guide <ArrowUpRight width={17} height={17} />
-            </a>
-          </div>
-        </div>
-        <div className="product-shell paper-grid">
-          {papers.map((paper) => (
-            <article key={paper.title}>
-              <div className="paper-preview"><Image src={paper.image} alt={`First page of ${paper.title}`} fill sizes="(max-width: 700px) 90vw, 380px" /></div>
-              <span>{paper.label}</span><h3>{paper.title}</h3><p>{paper.detail}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="whitepaper-stage">
-        <div className="product-shell whitepaper-inner">
-          <div>
-            <p className="quiet-label quiet-label-blue">Go deeper</p>
-            <h2>The full system.<br />No hand-waving.</h2>
-            <p>Architecture, memory budgets, FPGA gates, risk register, and falsification criteria—documented for researchers, builders, and early believers.</p>
-            <div className="stage-actions">
-              <Link className="primary-action primary-action-light" href="/research">
-                Read the whitepaper <OpenBook width={18} height={18} />
-              </Link>
-              <a className="secondary-action" href="/research/pocket-pet-ai-whitepaper.pdf" download>
-                Download PDF <Download width={18} height={18} />
-              </a>
-            </div>
-          </div>
-          <div className="whitepaper-cover">
-            <Image src="/product-v1/whitepaper/cover.png" alt="Cover of the Pocket Pet AI technical whitepaper" fill sizes="(max-width: 900px) 72vw, 430px" />
+          <div className="research-books" aria-label="Open research documents">
+            <div className="research-cover"><Image src="/product-v1/whitepaper/cover.png" alt="Pocket Pet AI whitepaper cover" fill sizes="300px" /></div>
+            <div className="research-paper research-paper-one"><Image src={papers[0].image} alt="BitNet primary paper" fill sizes="360px" /></div>
+            <div className="research-paper research-paper-two"><Image src={papers[1].image} alt="DeepSeek-V2 primary paper" fill sizes="360px" /></div>
           </div>
         </div>
       </section>
 
-      <footer className="product-footer">
+      <footer className="product-footer" id="footer">
         <div className="product-shell footer-claim">
           <h2>Concept today.<br />Foundation for tomorrow.</h2>
           <p>Pocket Pet AI is active research in local inference, memory, safety, and model-specific acceleration.</p>
