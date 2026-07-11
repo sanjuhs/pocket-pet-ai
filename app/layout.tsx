@@ -11,16 +11,16 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const base = new URL(`${protocol}://${host}`);
-  const image = new URL("/og.png", base).toString();
+  const image = new URL("/product-v1/hero/product-family.png", base).toString();
 
   return {
     metadataBase: base,
-    title: { default: "Pocket Pet AI — Private intelligence, physically yours", template: "%s · Pocket Pet AI" },
-    description: "An open architecture for a frozen-model, low-bit, wearable personal AI that speaks, remembers, and acts locally.",
+    title: { default: "Pocket Pet AI — The Living Object", template: "%s · Pocket Pet AI" },
+    description: "An open architecture for a private, local personal AI that listens, remembers, and acts under deterministic policy controls.",
     keywords: ["edge AI", "ternary transformer", "wearable AI", "private AI", "FPGA inference", "BitNet"],
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
-    openGraph: { title: "Pocket Pet AI", description: "A personal AI with a pulse — private, local, and physically yours.", type: "website", images: [{ url: image, width: 1730, height: 909, alt: "Pocket Pet AI private wearable intelligence system" }] },
-    twitter: { card: "summary_large_image", title: "Pocket Pet AI", description: "Private intelligence, physically yours.", images: [image] },
+    openGraph: { title: "Pocket Pet AI — The Living Object", description: "Private. Stable. Evolving with you.", type: "website", images: [{ url: image, width: 2048, height: 1152, alt: "Pocket Pet AI compute puck and open-ear clip concept family" }] },
+    twitter: { card: "summary_large_image", title: "Pocket Pet AI — The Living Object", description: "Private. Stable. Evolving with you.", images: [image] },
   };
 }
 

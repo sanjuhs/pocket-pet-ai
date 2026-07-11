@@ -17,6 +17,9 @@ Notable changes are documented here. The project follows [Keep a Changelog](http
 - Reproducible ML ablations with machine-readable results and 12 invariant tests.
 - Bit-accurate ternary FPGA golden model, two-bit packing contract, synthesizable reference MVU, and analytical lane sweep.
 - Curated 16-paper primary-source library with verified hashes, page counts, citations, implications, and caveats.
+- “The Living Object” product-story redesign with purpose-built product-family, macro, exploded, and silicon concept imagery.
+- Dark technical theatre and research finale covering ternary weights, latent memory, measured evidence, primary papers, and the downloadable whitepaper.
+- Responsive desktop and mobile presentation with an evidence chart generated from checked-in benchmark artifacts.
 
 ## [0.1.0] - 2026-07-11
 

@@ -1,171 +1,282 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  ArrowUpRight,
+  Brain,
+  Cpu,
+  Database,
+  Download,
+  Github,
+  Lock,
+  Microphone,
+  NavArrowRight,
+  OpenBook,
+} from "iconoir-react";
 
-const targets = [
-  ["7–9B", "frozen omni model"],
-  ["~1.58-bit", "native ternary weights"],
-  ["< 300 ms", "response-start ambition"],
-  ["8–15 W", "conversation envelope"],
+const principles = [
+  {
+    icon: Cpu,
+    title: "Co-designed compute",
+    body: "A frozen model turns weight layout and execution order into hardware inputs.",
+  },
+  {
+    icon: Database,
+    title: "Stable memory core",
+    body: "Latent working memory keeps active context compact while personal memory stays writable.",
+  },
+  {
+    icon: Microphone,
+    title: "Contextual sensing",
+    body: "Audio-first perception wakes the larger system only when the moment needs it.",
+  },
+  {
+    icon: Lock,
+    title: "Private by architecture",
+    body: "Inference, permissions, and long-term memory remain under the user’s control.",
+  },
 ];
 
-const layers = [
-  { index: "01", title: "Listen", body: "An open-ear wearable keeps the acoustic front end light, local, and always ready." },
-  { index: "02", title: "Reason", body: "A pocket compute puck runs one frozen, hardware-shaped multimodal model." },
-  { index: "03", title: "Remember", body: "Encrypted episodic memory stays separate from the hot context and under your control." },
-  { index: "04", title: "Act", body: "A deterministic permission layer brokers every tool call across phone and desktop." },
+const papers = [
+  {
+    image: "/product-v1/research/paper-bitnet.png",
+    label: "Ternary models",
+    title: "The Era of 1-bit LLMs",
+    detail: "BitNet b1.58 · primary paper",
+  },
+  {
+    image: "/product-v1/research/paper-mla.png",
+    label: "Latent attention",
+    title: "DeepSeek-V2",
+    detail: "Compressed attention · primary paper",
+  },
+  {
+    image: "/product-v1/research/paper-finn.png",
+    label: "FPGA acceleration",
+    title: "FINN",
+    detail: "Quantized networks on FPGA · primary paper",
+  },
 ];
 
 export default function Home() {
   return (
-    <main>
-      <nav className="nav shell" aria-label="Primary navigation">
-        <Link className="brand" href="#top" aria-label="Pocket Pet AI home">
-          <span className="brand-mark">p</span>
+    <main className="product-page" id="top">
+      <nav className="site-nav product-shell" aria-label="Primary navigation">
+        <Link className="wordmark" href="#top" aria-label="Pocket Pet AI home">
+          <Image src="/favicon.svg" alt="" width={24} height={24} />
           <span>Pocket Pet AI</span>
         </Link>
-        <div className="nav-links">
-          <Link href="#system">System</Link>
-          <Link href="#roadmap">Roadmap</Link>
-          <Link href="/research">Research</Link>
+        <div className="site-links">
+          <a href="#research">Research</a>
+          <a href="#hardware">Hardware</a>
+          <a href="https://github.com/sanjuhs/pocket-pet-ai">Open source</a>
+          <a href="#evidence">Evidence</a>
         </div>
-        <a className="nav-cta" href="https://github.com/sanjuhs/pocket-pet-ai" aria-label="View the open-source project on GitHub">
-          Open source <span>↗</span>
+        <a className="nav-action" href="https://github.com/sanjuhs/pocket-pet-ai">
+          Join the research preview <NavArrowRight width={16} height={16} />
         </a>
       </nav>
 
-      <section className="hero shell" id="top">
-        <div className="hero-copy">
-          <div className="eyebrow"><span className="live-dot" /> Open architecture · concept stage</div>
-          <h1>A personal AI<br />with a <em>pulse.</em></h1>
-          <p className="hero-lede">
-            One private model. One consistent personality. A voice in your ear and a frozen-model brain in your pocket—built to think, remember, and act without the cloud.
+      <section className="living-hero product-shell">
+        <div className="hero-intro">
+          <p className="quiet-label">Open architecture · concept stage</p>
+          <h1>The Living Object.</h1>
+          <p className="hero-subtitle">Private. Stable. Evolving with you.</p>
+          <p className="hero-summary">
+            A personal AI companion that lives on-device. It listens, remembers, and acts—without the cloud.
           </p>
-          <div className="hero-actions">
-            <Link className="button button-primary" href="/research">Read the whitepaper <span>↗</span></Link>
-            <a className="button button-quiet" href="#system">Explore the system <span>↓</span></a>
-          </div>
-          <p className="microcopy">Research prototype, not a shipping hardware claim.</p>
         </div>
-        <div className="hero-visual">
-          <Image src="/images/pocket-pet-in-use.png" alt="Concept rendering of the Pocket Pet AI wearable, pocket puck, and phone companion" fill priority sizes="(max-width: 900px) 100vw, 56vw" />
-          <div className="signal-card">
-            <span className="wave">▂▅▇▃▆▂▅</span>
-            <div><b>Voice loop active</b><small>local · encrypted · streaming</small></div>
-          </div>
-          <div className="latency-chip"><span>Target</span><b>&lt;300 ms</b><small>speech start</small></div>
+        <div className="hero-product">
+          <Image
+            src="/product-v1/hero/product-family.png"
+            alt="Concept rendering of the Pocket Pet AI compute puck and two open-ear clips"
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 1280px"
+          />
         </div>
-      </section>
-
-      <section className="target-strip" aria-label="Design targets">
-        <div className="shell target-grid">
-          {targets.map(([value, label]) => <div className="target" key={label}><strong>{value}</strong><span>{label}</span></div>)}
-          <div className="target-note">Design targets<br />to validate</div>
+        <p className="claim-note">Concept-stage research system. Not for sale.</p>
+        <div className="hero-proof" aria-label="Product principles">
+          <span><b>Runs locally</b>No cloud required</span>
+          <span><b>Personal by design</b>Your data stays with you</span>
+          <span><b>Built for one model</b>Hardware shaped around the weights</span>
+          <span><b>Open and verifiable</b>Code, tests, and papers</span>
         </div>
       </section>
 
-      <section className="manifesto shell section-pad">
-        <p className="section-kicker">The premise</p>
-        <h2>The model stops changing.<br /><span>The relationship doesn’t.</span></h2>
-        <div className="manifesto-grid">
-          <p className="big-copy">Freeze the neural architecture, co-design the silicon around its exact dataflow, and keep personal adaptation in encrypted memory—not in ever-changing weights.</p>
-          <p className="body-copy">General-purpose accelerators pay a flexibility tax. Pocket Pet AI explores the opposite bet: one known low-bit model, fixed routing, protected precision where it matters, and software-defined tools around a stable personality core.</p>
+      <section className="story-panel story-listens" id="hardware">
+        <div className="story-visual">
+          <Image src="/product-v1/story/listens-macro.png" alt="Macro concept rendering of the puck microphone apertures and soft-touch shell" fill loading="eager" sizes="100vw" />
+        </div>
+        <div className="story-copy product-shell">
+          <h2>It listens.</h2>
+          <p>Low-power acoustic sensing stays ready. The larger model wakes only when context calls for it.</p>
+          <span className="figure-label">Concept visualization · microphone response remains to be measured</span>
         </div>
       </section>
 
-      <section className="system-section" id="system">
-        <div className="shell section-pad">
-          <div className="section-head">
-            <div><p className="section-kicker light">System architecture</p><h2>Voice. Brain. Hands.</h2></div>
-            <p>Three physical surfaces, one continuous local experience.</p>
-          </div>
-          <div className="architecture-card">
-            <Image src="/images/pocket-pet-architecture.png" alt="Exploded architecture concept for the Pocket Pet AI compute puck" fill sizes="(max-width: 900px) 100vw, 86vw" />
-          </div>
-          <div className="layer-grid">
-            {layers.map((layer) => (
-              <article className="layer" key={layer.index}>
-                <span>{layer.index}</span><h3>{layer.title}</h3><p>{layer.body}</p>
-              </article>
-            ))}
-          </div>
+      <section className="story-panel story-remembers">
+        <div className="story-visual">
+          <Image src="/product-v1/story/exploded-memory.png" alt="Exploded concept rendering of the puck shell, compute boards, memory, thermal layer, and battery" fill sizes="100vw" />
+        </div>
+        <div className="story-copy product-shell">
+          <h2>It remembers.</h2>
+          <p>A compressed working context and encrypted personal memory build continuity without sending a life to the cloud.</p>
+          <span className="figure-label">Concept visualization · final components and layout may differ</span>
         </div>
       </section>
 
-      <section className="frozen shell section-pad">
-        <div className="frozen-copy">
-          <p className="section-kicker">Frozen on purpose</p>
-          <h2>Less movement.<br />More velocity.</h2>
-          <p>In a ternary matrix, ordinary weights become add, subtract, or skip. Fix those weights before fabrication and the memory paths, sparsity map, and compute schedule become physical design inputs.</p>
-          <div className="formula" aria-label="Ternary weight equation">
-            <span>w<sub>i</sub> ∈</span><b>−1</b><b>0</b><b>+1</b><span>→</span><strong>ADD · SKIP · SUB</strong>
-          </div>
+      <section className="story-panel story-acts">
+        <div className="story-visual">
+          <Image src="/product-v1/story/acts-silicon.png" alt="Concept macro rendering of a model-specific accelerator inside the compute puck" fill sizes="100vw" />
         </div>
-        <div className="memory-map">
-          <div className="memory-top"><span>PROPOSED MEMORY MAP</span><span>9B-class model</span></div>
-          <div className="memory-bar">
-            <div className="segment ternary"><span>TERNARY CORE</span><b>~2.25 GB*</b></div>
-            <div className="segment precision"><span>PROTECTED</span><b>mixed</b></div>
-            <div className="segment runtime"><span>RUNTIME</span><b>8–16 GB</b></div>
-          </div>
-          <div className="memory-notes">
-            <p><b>98%+</b><span>candidate low-bit pathway</span></p>
-            <p><b>32–256 MB</b><span>on-chip scratch target</span></p>
-            <p><b>64–256 MB</b><span>typical latent KV target</span></p>
-          </div>
-          <small>*Two-bit physical packing before scales, metadata, protected weights, and multimodal modules. Values are architecture targets, not measured silicon.</small>
+        <div className="story-copy product-shell light-copy">
+          <h2>It acts.</h2>
+          <p>The model proposes each action. Deterministic software checks permission, risk, and consent before execution.</p>
+          <span className="figure-label">Concept visualization · no custom silicon has been fabricated</span>
         </div>
       </section>
 
-      <section className="roadmap-section" id="roadmap">
-        <div className="shell section-pad">
-          <div className="section-head dark-head">
-            <div><p className="section-kicker">Build sequence</p><h2>Software truth<br />before silicon.</h2></div>
-            <p>Each stage exists to retire a different class of risk.</p>
-          </div>
-          <div className="stage-grid">
-            <article className="stage featured">
-              <div className="stage-number">STAGE 01 <span>NOW</span></div>
-              <h3>Reference model<br />on commodity compute</h3>
-              <p>Prove the complete speech-to-action loop, ternary emulation, latent-memory behavior, safety controller, and honest latency baseline.</p>
-              <ul><li>Reproducible PyTorch prototype</li><li>Android + desktop tool bridge</li><li>Power, memory, TTFT benchmarks</li><li>Small-model accuracy harness</li></ul>
+      <section className="principles product-shell">
+        <header className="center-header">
+          <h2>Built from first principles.</h2>
+          <p>One fixed model. One inspectable system. Every assumption exposed to measurement.</p>
+        </header>
+        <div className="principle-grid">
+          {principles.map(({ icon: Icon, title, body }) => (
+            <article key={title}>
+              <Icon width={30} height={30} strokeWidth={1.4} aria-hidden="true" />
+              <h3>{title}</h3>
+              <p>{body}</p>
             </article>
-            <article className="stage">
-              <div className="stage-number">STAGE 02 <span>NEXT</span></div>
-              <h3>Fixed-dataflow<br />FPGA demonstrator</h3>
-              <p>Move the best-understood kernels into configurable logic and measure real bandwidth, utilization, thermals, and quality.</p>
-              <ul><li>Ternary add/sub/skip arrays</li><li>Static weight-bank placement</li><li>Latent-KV memory controller</li><li>Streaming multi-token decoder</li></ul>
+          ))}
+        </div>
+      </section>
+
+      <section className="technical-theatre" id="research">
+        <div className="product-shell technical-intro">
+          <p className="quiet-label quiet-label-blue">The architecture</p>
+          <h2>Ternary weights.<br />Latent memory.<br />Real recall.</h2>
+          <p>
+            Freeze what should stay stable. Compress what must stay fast. Keep the user’s evolving memory separate, encrypted, and retrievable.
+          </p>
+        </div>
+        <div className="product-shell technical-grid">
+          <article>
+            <Cpu width={28} height={28} strokeWidth={1.35} />
+            <span>01 · Frozen compute</span>
+            <h3>Add. Subtract. Skip.</h3>
+            <p>Ordinary ternary weights route activations through three known operations. Protected outliers retain higher precision.</p>
+            <strong>−1&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;+1</strong>
+          </article>
+          <article>
+            <Database width={28} height={28} strokeWidth={1.35} />
+            <span>02 · Latent working memory</span>
+            <h3>More context. Fewer bytes.</h3>
+            <p>The software reference compresses K/V state into an int8 latent plus a per-token FP16 scale.</p>
+            <strong>15.06× <small>measured payload ratio</small></strong>
+          </article>
+          <article>
+            <Brain width={28} height={28} strokeWidth={1.35} />
+            <span>03 · Personal recall</span>
+            <h3>History without surveillance.</h3>
+            <p>Structured memories can be retrieved when relevant without keeping an entire life in the active context window.</p>
+            <strong>Local <small>design requirement</small></strong>
+          </article>
+        </div>
+      </section>
+
+      <section className="evidence-section" id="evidence">
+        <div className="product-shell evidence-head">
+          <div>
+            <p className="quiet-label">The evidence</p>
+            <h2>Built to be proven.</h2>
+          </div>
+          <p>
+            This is not a performance theatre. Every public number is tied to code, a run artifact, or an explicit target—and every failed premise is useful evidence.
+          </p>
+        </div>
+        <div className="product-shell evidence-graphic">
+          <Image src="/product-v1/research/evidence.png" alt="Measured software-reference results for outlier protection and latent cache compression" fill loading="eager" sizes="(max-width: 900px) 100vw, 1280px" />
+        </div>
+        <div className="product-shell evidence-ledger">
+          <article><span>Measured · software</span><b>0.897 → 0.193</b><p>Injected-outlier relative-L2 error with 1% FP32 protection.</p></article>
+          <article><span>Measured · software</span><b>15.06×</b><p>Tensor-payload reduction for the default 32-wide latent cache.</p></article>
+          <article><span>Simulated · FPGA reference</span><b>Exact match</b><p>Packed ternary golden vector equals explicit routed add/subtract.</p></article>
+          <article><span>Analytical · not board data</span><b>4.0×</b><p>Packed 2-bit weights versus dense int8 storage for the reference kernel.</p></article>
+        </div>
+        <div className="product-shell evidence-actions">
+          <a className="text-link" href="https://github.com/sanjuhs/pocket-pet-ai/tree/main/benchmark-results">
+            Inspect the run artifacts <ArrowUpRight width={17} height={17} />
+          </a>
+          <a className="text-link" href="https://github.com/sanjuhs/pocket-pet-ai/tree/main/fpga">
+            Review the FPGA golden model <ArrowUpRight width={17} height={17} />
+          </a>
+        </div>
+      </section>
+
+      <section className="open-research-section">
+        <div className="product-shell research-heading">
+          <div>
+            <p className="quiet-label">The literature</p>
+            <h2>Open research.<br />Real rigor.</h2>
+          </div>
+          <div>
+            <p>Sixteen primary papers, verified locally and organized around the questions this architecture must answer.</p>
+            <a className="text-link" href="https://github.com/sanjuhs/pocket-pet-ai/blob/main/docs/research-guide.md">
+              Browse the research guide <ArrowUpRight width={17} height={17} />
+            </a>
+          </div>
+        </div>
+        <div className="product-shell paper-grid">
+          {papers.map((paper) => (
+            <article key={paper.title}>
+              <div className="paper-preview"><Image src={paper.image} alt={`First page of ${paper.title}`} fill sizes="(max-width: 700px) 90vw, 380px" /></div>
+              <span>{paper.label}</span><h3>{paper.title}</h3><p>{paper.detail}</p>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="whitepaper-stage">
+        <div className="product-shell whitepaper-inner">
+          <div>
+            <p className="quiet-label quiet-label-blue">Go deeper</p>
+            <h2>The full system.<br />No hand-waving.</h2>
+            <p>Architecture, memory budgets, FPGA gates, risk register, and falsification criteria—documented for researchers, builders, and early believers.</p>
+            <div className="stage-actions">
+              <Link className="primary-action primary-action-light" href="/research">
+                Read the whitepaper <OpenBook width={18} height={18} />
+              </Link>
+              <a className="secondary-action" href="/research/pocket-pet-ai-whitepaper.pdf" download>
+                Download PDF <Download width={18} height={18} />
+              </a>
+            </div>
           </div>
-          <div className="gate-row"><span>Architecture gate</span><p>No ASIC recommendation until the FPGA system reproduces quality and demonstrates a defensible energy-per-token advantage.</p></div>
-        </div>
-      </section>
-
-      <section className="safety shell section-pad">
-        <div className="safety-visual"><Image src="/images/pocket-pet-product-system.png" alt="Pocket Pet AI product family and companion application concept" fill sizes="(max-width: 900px) 100vw, 48vw" /></div>
-        <div className="safety-copy">
-          <p className="section-kicker">Agency, with boundaries</p>
-          <h2>The model proposes.<br />The controller decides.</h2>
-          <p>The neural model never receives unrestricted control. Every action is typed, policy-checked, permission-scoped, observed, and—when sensitive—confirmed by the human.</p>
-          <div className="action-flow"><span>Intent</span><i>→</i><span>Proposal</span><i>→</i><span>Policy</span><i>→</i><span>Consent</span><i>→</i><span>Action</span></div>
-        </div>
-      </section>
-
-      <section className="research-cta">
-        <div className="shell research-inner">
-          <p className="section-kicker light">Open research</p>
-          <h2>Read the architecture.<br />Challenge the assumptions.<br /><em>Help make it real.</em></h2>
-          <p>The whitepaper exposes the math, tradeoffs, failure modes, staged validation plan, and open questions behind the product thesis.</p>
-          <div className="hero-actions">
-            <Link className="button button-white" href="/research">Open whitepaper <span>↗</span></Link>
-            <a className="button button-outline" href="/research/pocket-pet-ai-whitepaper.pdf" download>Download PDF <span>↓</span></a>
+          <div className="whitepaper-cover">
+            <Image src="/product-v1/whitepaper/cover.png" alt="Cover of the Pocket Pet AI technical whitepaper" fill sizes="(max-width: 900px) 72vw, 430px" />
           </div>
         </div>
       </section>
 
-      <footer className="footer shell">
-        <div className="brand"><span className="brand-mark">p</span><span>Pocket Pet AI</span></div>
-        <p>Private intelligence, physically yours.</p>
-        <div><Link href="/research">Whitepaper</Link><a href="https://github.com/sanjuhs/pocket-pet-ai">GitHub ↗</a><span>MIT licensed</span></div>
+      <footer className="product-footer">
+        <div className="product-shell footer-claim">
+          <h2>Concept today.<br />Foundation for tomorrow.</h2>
+          <p>Pocket Pet AI is active research in local inference, memory, safety, and model-specific acceleration.</p>
+          <a className="text-link text-link-light" href="https://github.com/sanjuhs/pocket-pet-ai">
+            Join the open project <Github width={18} height={18} />
+          </a>
+        </div>
+        <div className="product-shell footer-metrics">
+          <span><b>7–9B</b>model class · target</span>
+          <span><b>&lt;300 ms</b>response start · target</span>
+          <span><b>8–15 W</b>conversation · estimate</span>
+          <span><b>−1 / 0 / +1</b>ternary symbols · architecture</span>
+        </div>
+        <div className="product-shell footer-bottom">
+          <div className="wordmark wordmark-light"><Image src="/favicon.svg" alt="" width={20} height={20} /><span>Pocket Pet AI</span></div>
+          <nav aria-label="Footer navigation"><a href="#hardware">Hardware</a><a href="#evidence">Evidence</a><Link href="/research">Whitepaper</Link><a href="https://github.com/sanjuhs/pocket-pet-ai">GitHub</a></nav>
+          <p>MIT licensed · concept stage</p>
+        </div>
       </footer>
     </main>
   );
